@@ -453,9 +453,15 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,san
 <!-- ═══════════════ TAB COMPARATIVO ═══════════════ -->
 <div id="tab-comparativo" class="tab-content">
 <div class="main">
+<div class="az-bar">
+  <div class="az-toggle" id="azt-comparativo" onclick="setAzucar(this,'comparativo')">
+    <div class="az-opt on" data-v="con">Con Azúcar</div>
+    <div class="az-opt"    data-v="sin">Sin Azúcar</div>
+  </div>
+  <span class="az-note">⚠️ El azúcar fue una importación excepcional de Carlos Mario</span>
+</div>
   <div style="margin-bottom:14px;padding:10px 14px;background:var(--surface2);border:1px solid var(--border);border-radius:10px;font-size:12px;color:var(--text2)">
     📊 Comparativo mensual — <span id="comp-titulo" style="color:var(--text);font-weight:600"></span>
-    <span style="margin-left:8px;font-size:11px">Azúcar: <span id="comp-az-label" style="color:var(--accent3)"></span></span>
   </div>
 
   <div class="kpi-row" id="comp-kpis" style="grid-template-columns:repeat(5,1fr)"></div>
@@ -1023,7 +1029,7 @@ function setAzucar(el, tab){
     // Re-renderizar pestaña activa
     const tabActiva = document.querySelector('.tab-content.active');
     const renders={resumen:renderResumen,vendedores:renderVendedores,ciudades:renderCiudades,
-      productos:renderProductos,clientes:renderClientes,mapa:renderMapa};
+      productos:renderProductos,clientes:renderClientes,mapa:renderMapa,comparativo:renderComparativo};
     if(tabActiva){
       const tid=tabActiva.id.replace('tab-','');
       if(renders[tid]) renders[tid]();
