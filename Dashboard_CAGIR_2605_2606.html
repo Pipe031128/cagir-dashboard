@@ -1172,7 +1172,6 @@ function renderComparativo(){
   if(!d1||!d2) return;
   const r1=d1.resumen, r2=d2.resumen;
   document.getElementById('comp-titulo').textContent = L1+' vs '+L2;
-  document.getElementById('comp-az-label').textContent = az==='con' ? 'Con azúcar' : 'Sin azúcar';
 
   // Actualizar encabezados de tabla
   ['comp-th-v1','comp-th-m1'].forEach(id=>document.getElementById(id).textContent=L1);
